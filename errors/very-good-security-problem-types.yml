@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/very-good-security-vault-openapi-original.yml
+format: custom
+envelope: >-
+  All Vault HTTP API failures return a JSON body with an errors[] array; each
+  error carries status (int), title, detail, and href (the request URL). Not
+  RFC 9457 problem+json.
+problems:
+- status: 400
+  title: Bad request
+  detail_example: 'Too many values (limit: 20)'
+  remediation: createAliases accepts at most 20 values per request; batch accordingly
+  source_operation: openapi/very-good-security-vault-openapi-original.yml#createAliases
+- status: 401
+  title: Unauthorized
+  remediation: >-
+    supply valid credentials — Basic auth vault access credentials from the
+    dashboard, or an OAuth2 client-credentials token whose client has both the
+    alias scope and an assigned vault (credentials without a vault assignment
+    return 401 even with correct scopes)
+- status: 429
+  title: Too Many Requests
+  remediation: >-
+    the vault-level rate limit of 3,000 requests/minute was exceeded; watch the
+    x-ratelimit-remaining response header and back off
+- status: default
+  title: API error envelope
+  detail: every operation declares a default ApiErrorsResponse with the errors[] envelope
+  source_operation: openapi/very-good-security-vault-openapi-original.yml#components/responses/ApiErrorsResponse

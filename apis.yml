@@ -1,22 +1,154 @@
 aid: very-good-security
 name: Very Good Security
-description: Very Good Security is a company surfaced as a portfolio company of a16z and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Very Good Security (VGS) is a data security and payments infrastructure company
+  that lets organizations operate on sensitive data — payment card numbers, bank
+  accounts, PII, and other regulated information — without the cost or liability of
+  storing it themselves. Its core Vault tokenization platform substitutes sensitive
+  values with format-preserving aliases so customer systems never touch raw data,
+  dramatically reducing PCI DSS, SOC 2, HIPAA, and GDPR compliance scope. VGS also
+  offers Zero Data (a proxy that keeps the customer environment entirely out of PCI
+  scope), a Card Management Platform (network tokens, account updater, 3D Secure),
+  and VGS Control for compliance automation. The developer surface includes the Vault
+  HTTP API for aliases/tokenization, VGS Collect and VGS Show client SDKs, a Terraform
+  provider, and the vgs-cli command line tool. Founded in 2015, VGS is backed by a16z
+  and stores over 5 billion tokens.
 url: https://raw.githubusercontent.com/api-evangelist/very-good-security/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - a16z
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-live-surface
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
+image: https://www.verygoodsecurity.com/favicon.ico
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 19
+  pass: local-v1
 tags:
 - Company
-apis: []
+- Data Security
+- Tokenization
+- Payments
+- Vault
+- PCI Compliance
+- Data Privacy
+- Card Management
+- Network Tokens
+- Security
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: very-good-security:very-good-security-aliases-api
+  name: Very Good Security aliases API
+  description: >-
+    Unique IDs that retain all the essential information about the data
+
+    without compromising its security.
+  humanURL: https://www.verygoodsecurity.com/docs/vault/api/
+  baseURL: https://api.live.verygoodvault.com
+  tags:
+  - aliases
+  properties:
+  - type: OpenAPI
+    url: openapi/very-good-security-aliases-api-openapi.yml
+  - type: APIReference
+    url: https://www.verygoodsecurity.com/docs/vault/api/
+  - type: Documentation
+    url: https://docs.verygoodsecurity.com/vault/developer-tools/apis/vault-api
+common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/very-good-security/overview
+- type: Packages
+  url: packages/very-good-security-packages.yml
+- type: SDKs
+  url: packages/very-good-security-packages.yml
+- type: WellKnown
+  url: well-known/very-good-security-well-known.yml
+- type: MCPServer
+  url: mcp/very-good-security-mcp.yml
+- type: LLMsTxt
+  url: llms/very-good-security-llms.txt
+- type: Overlay
+  url: overlays/very-good-security-vault-overlay.yaml
+- type: Conformance
+  url: conformance/very-good-security-conformance.yml
+- type: ErrorCatalog
+  url: errors/very-good-security-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/very-good-security-lifecycle.yml
+- type: OAuthScopes
+  url: scopes/very-good-security-scopes.yml
+- type: CLI
+  url: cli/very-good-security-cli.yml
+- type: Sandbox
+  url: sandbox/very-good-security-sandbox.yml
+- type: Conventions
+  url: conventions/very-good-security-conventions.yml
+- type: ChangeLog
+  url: changelog/very-good-security-changelog.yml
+- type: Components
+  url: components/very-good-security-components.yml
+- type: DataModel
+  url: data-model/very-good-security-data-model.yml
+- type: Webhooks
+  url: asyncapi/very-good-security-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: TrustCenter
+  url: security/very-good-security-trust-center.yml
+- type: DomainSecurity
+  url: security/very-good-security-domain-security.yml
+- type: Authentication
+  url: authentication/very-good-security-authentication.yml
+- type: DeveloperPortal
+  url: https://docs.verygoodsecurity.com/
+- type: Documentation
+  url: https://docs.verygoodsecurity.com/
+- type: APIReference
+  url: https://www.verygoodsecurity.com/docs/vault/api/
+- type: GettingStarted
+  url: https://www.verygoodsecurity.com/docs/tokenization/getting-started
+- type: Blog
+  url: https://www.verygoodsecurity.com/blog/
+- type: GitHubOrganization
+  url: https://github.com/verygoodsecurity
+- type: Support
+  url: mailto:support@verygoodsecurity.com
+- type: SignUp
+  url: https://dashboard.verygoodsecurity.com/tokenization
+- type: Login
+  url: https://dashboard.verygoodsecurity.com
+- type: Pricing
+  url: https://www.verygoodsecurity.com/pricing
+- type: TermsOfService
+  url: https://www.verygoodsecurity.com/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.verygoodsecurity.com/privacy-notice
+- type: StatusPage
+  url: https://status.verygoodsecurity.com/
+- type: TrustCenter
+  url: https://security.verygoodsecurity.com/
+- type: Compliance
+  url: https://security.verygoodsecurity.com/
+- type: ChangeLog
+  url: https://docs.verygoodsecurity.com/overview/release-notes

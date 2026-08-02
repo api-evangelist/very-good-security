@@ -1,0 +1,64 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/vgs-samples/vgs-agent-toolkit
+status: published
+notes: >-
+  VGS publishes a first-party Agent Toolkit with two self-hosted FastMCP (Python)
+  MCP servers plus MCP UI examples — including a Collect-based MCP UI component
+  that lets agents trigger secure payment-data collection inside a conversation
+  without raw card data touching the agent. These are run-locally (stdio) servers,
+  not a hosted remote endpoint. See also the Agentic Commerce Guide at
+  https://docs.verygoodsecurity.com/agentic-commerce/agentic-commerce-overview
+  and the launch post
+  https://www.verygoodsecurity.com/blog/posts/agentic-commerce-ai-powered-shopping-with-vgs-collect-mcp-ui
+servers:
+- name: vaultmcp
+  description: VGS Secure Data Platform (Vault + Proxy) MCP Server — manage vault routes and access logs
+  transport: stdio
+  runtime: python (fastmcp + uv)
+  url: https://github.com/vgs-samples/vgs-agent-toolkit/tree/main/mcp/vaultmcp
+  tools:
+  - name: get_access_logs
+    description: Retrieve proxy access logs for a vault
+  - name: create_route
+    description: Create an inbound/outbound proxy route
+  - name: delete_route
+    description: Delete a proxy route
+  - name: get_route
+    description: Get a proxy route configuration
+  - name: update_route
+    description: Update a proxy route configuration
+  - name: get_routes
+    description: List all routes for a vault
+  - name: enable_debug_logs
+    description: Enable debug logging for a vault
+  - name: get_access_log_details_by_request_id
+    description: Get access log details for a specific request id
+- name: cmpmcp
+  description: VGS Credential Management Platform (CMP) MCP Server — cards, network tokens, account updater
+  transport: stdio
+  runtime: python (fastmcp + uv)
+  url: https://github.com/vgs-samples/vgs-agent-toolkit/tree/main/mcp/cmpmcp
+  tools:
+  - name: get_card
+    description: Retrieve a stored card
+  - name: create_network_token
+    description: Provision a network token for a card
+  - name: fetch_network_token_cryptogram
+    description: Fetch a cryptogram for a network token transaction
+  - name: get_real_time_account_update
+    description: Run a real-time account update for a card
+  - name: subscribe_to_account_updates
+    description: Enroll a card in Account Updater
+  - name: unsubscribe_from_account_updates
+    description: Unenroll a card from Account Updater
+examples:
+- name: secure-data-mcp-example
+  description: Browser proxy form-fill MCP server example (Vault + Proxy)
+  url: https://github.com/vgs-samples/vgs-agent-toolkit/tree/main/examples/secure-data-mcp-example
+- name: mcp-ui-collect
+  description: VGS Collect MCP UI component — agents render a secure card-collection form in-conversation
+  url: https://github.com/vgs-samples/vgs-agent-toolkit/tree/main/examples/mcp-ui-collect
+- name: agentic-commerce-tutorial
+  description: End-to-end agentic commerce tutorial
+  url: https://github.com/vgs-samples/vgs-agent-toolkit/tree/main/examples/agentic-commerce-tutorial

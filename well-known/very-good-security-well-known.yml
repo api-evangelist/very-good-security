@@ -1,0 +1,55 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of VGS website, docs, API, and auth hosts
+notes: >-
+  api.sandbox.verygoodvault.com and api.live.verygoodvault.com return a catch-all
+  200 "OK" (2 bytes) for every path, so their well-known responses are soft-200s,
+  not real documents — recorded as catch-all below. The real OIDC discovery
+  document lives at the Keycloak realm path on auth.verygoodsecurity.com.
+hosts:
+- host: https://www.verygoodsecurity.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://docs.verygoodsecurity.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /llms.txt
+    status: 200
+    file: ../llms/very-good-security-llms.txt
+- host: https://api.sandbox.verygoodvault.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: catch-all responder — body is the 2-byte string "OK", not a security.txt
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: catch-all responder — not a real document
+- host: https://api.live.verygoodvault.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: catch-all responder — body is the 2-byte string "OK", not a security.txt
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: catch-all responder — not a real document
+- host: https://auth.verygoodsecurity.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 403
+    note: root path blocked; the realm path below is public
+  - path: /auth/realms/vgs/.well-known/openid-configuration
+    status: 200
+    file: very-good-security-openid-configuration.json
+    note: Keycloak OIDC discovery for the vgs realm — issuer, token endpoint, and 150+ platform scopes

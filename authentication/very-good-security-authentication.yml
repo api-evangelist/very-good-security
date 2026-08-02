@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.verygoodsecurity.com/vault/developer-tools/apis/vault-api/authentication-and-authorization
+docs: https://docs.verygoodsecurity.com/vault/developer-tools/apis/vault-api/authentication-and-authorization
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: >-
+    Vault HTTP API default auth — vault access credentials (username/password)
+    generated in the dashboard under the vault's Settings section.
+  docs: https://www.verygoodsecurity.com/docs/settings/access-credentials
+  sources:
+  - openapi/very-good-security-vault-openapi-original.yml
+- name: oauth2ClientCredentials
+  type: oauth2
+  description: >-
+    Vault API and platform management APIs authenticate via OAuth 2.0 client
+    credentials (service accounts created in the dashboard or via vgs-cli).
+    Access tokens are scoped (aliases:read/write/delete and 150+ platform scopes)
+    AND vault-bound — credentials without an assigned vault get 401 regardless
+    of scopes.
+  flows:
+    clientCredentials:
+      tokenUrl: https://auth.verygoodsecurity.com/auth/realms/vgs/protocol/openid-connect/token
+      scopes: scopes/very-good-security-scopes.yml
+  sources:
+  - https://docs.verygoodsecurity.com/vault/developer-tools/apis/vault-api/authentication-and-authorization
+  - well-known/very-good-security-openid-configuration.json

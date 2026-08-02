@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/very-good-security-vault-openapi-original.yml
+entities:
+- name: Value
+  description: a sensitive data value stored in the vault (RevealedData schema)
+  fields: [value, classifiers, aliases, created_at, storage]
+  id_domain: raw sensitive data — never exposed outside reveal operations
+- name: Alias
+  description: format-preserving token that references a stored value
+  fields: [value, format]
+  id_prefixes:
+    sandbox: tok_sandbox_
+    live: tok_live_
+  formats: [UUID, RAW_UUID, format-preserving variants]
+- name: Classifier
+  description: free-form label attached to a stored value (e.g. bank-account, credit-cards, PII)
+relationships:
+- from: Value
+  to: Alias
+  kind: has_many
+  via: aliases
+  notes: one stored value can carry multiple aliases (secondary aliases reference the same underlying data)
+- from: Alias
+  to: Value
+  kind: belongs_to
+  via: alias reveal (GET /aliases/{alias})
+- from: Value
+  to: Classifier
+  kind: has_many
+  via: classifiers
+storage_classes:
+- PERSISTENT
+- VOLATILE

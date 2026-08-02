@@ -1,0 +1,38 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the VGS Vault HTTP API
+  version: 1.0.0
+extends: openapi/very-good-security-vault-openapi-original.yml
+x-generated: '2026-07-21'
+x-method: generated
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: very-good-security
+      artifacts:
+        authentication: authentication/very-good-security-authentication.yml
+        conventions: conventions/very-good-security-conventions.yml
+        errors: errors/very-good-security-problem-types.yml
+        sandbox: sandbox/very-good-security-sandbox.yml
+        scopes: scopes/very-good-security-scopes.yml
+        webhooks: asyncapi/very-good-security-webhooks.yml
+- target: $.info
+  update:
+    x-rate-limit:
+      limit: 3000
+      window: 1 minute
+      scope: vault
+      header: x-ratelimit-remaining
+- target: $.paths['/aliases'].post
+  update:
+    x-batch-limit: 20
+    x-idempotent: false
+- target: $.paths['/aliases'].get
+  update:
+    x-disabled-by-default: true
+    x-note: bulk reveal is disabled by default; enable via VGS support
+- target: $.paths['/aliases/{alias}'].get
+  update:
+    x-disabled-by-default: true
+    x-note: single-alias reveal is disabled by default; enable via VGS support

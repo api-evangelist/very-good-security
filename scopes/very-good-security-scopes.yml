@@ -1,0 +1,52 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.verygoodsecurity.com/vault/developer-tools/apis/vault-api/authentication-and-authorization
+docs: https://docs.verygoodsecurity.com/vault/developer-tools/apis/vault-api/authentication-and-authorization
+notes: >-
+  The harvested Vault HTTP API OpenAPI declares only basic auth, so nothing was
+  derivable from the spec; these scopes come from the Vault API auth docs and the
+  live Keycloak OIDC discovery document (well-known/very-good-security-openid-configuration.json),
+  whose scopes_supported lists 150+ platform scopes. Documented Vault API scopes
+  are below; credentials must also be assigned to specific vaults or requests
+  return 401 even with correct scopes.
+schemes:
+- name: OAuth2 client credentials (vgs realm)
+  source: https://auth.verygoodsecurity.com/auth/realms/vgs/.well-known/openid-configuration
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.verygoodsecurity.com/auth/realms/vgs/protocol/openid-connect/token
+scopes:
+- scope: aliases:read
+  description: read the entire vault data object using the associated alias
+  flows: [clientCredentials]
+- scope: aliases:write
+  description: create new aliases by value
+  flows: [clientCredentials]
+- scope: aliases:delete
+  description: delete any alias
+  flows: [clientCredentials]
+platform_scope_registry:
+  source: well-known/very-good-security-openid-configuration.json
+  count: 150+
+  examples:
+  - routes:read
+  - routes:write
+  - vaults:read
+  - vaults:write
+  - credentials:read
+  - credentials:write
+  - network-tokens:read
+  - network-tokens:write
+  - cards:read
+  - cards:write
+  - cards:read-pci
+  - 3ds:read
+  - 3ds:write
+  - access-logs:read
+  - audit-logs:read
+  - certificates:read
+  - certificates:write
+  - account-validations:read
+  - account-validations:write
+  - financial-instruments:read
+  - financial-instruments:write

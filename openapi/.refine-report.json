@@ -1,0 +1,14 @@
+{
+  "provider": "very-good-security",
+  "sources": [
+    "very-good-security-aliases-api-openapi.yml"
+  ],
+  "outputs": [
+    "very-good-security-aliases-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

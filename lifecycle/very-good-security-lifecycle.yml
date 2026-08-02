@@ -1,0 +1,18 @@
+generated: '2026-07-21'
+method: searched
+source: https://status.verygoodsecurity.com/ + https://docs.verygoodsecurity.com/
+status_page: https://status.verygoodsecurity.com/
+versioning:
+  scheme: docs-track versioning
+  current: Vault HTTP API (aliases surface) + Vault API (OAuth2 surface)
+  legacy: Vault API v1, still documented at https://docs.verygoodsecurity.com/vault/developer-tools/apis/vault-api-v1
+  docs: https://docs.verygoodsecurity.com/vault/developer-tools/apis
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: no published deprecation policy or RFC 8594 Sunset-header support found; legacy v1 APIs remain documented alongside current ones
+sla:
+  url: null
+  notes: reliability posture described at https://docs.verygoodsecurity.com/enterprise-platform/reliability-and-security/reliability; no public uptime-target SLA page found
+release_notes: https://docs.verygoodsecurity.com/overview/release-notes
+deprecated_operations: []

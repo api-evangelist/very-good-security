@@ -1,0 +1,14 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.verygoodsecurity.com/overview/release-notes
+scheme: date-based (YYYY-MM-DD), tagged by product area (e.g. cmp, user-experience, data)
+url: https://docs.verygoodsecurity.com/overview/release-notes
+entries:
+- date: '2026-06-26'
+  breaking: false
+  highlights:
+  - Format-preserving PAN Alias — CMP can return pan_alias in a configured format at the account level
+  - CMP Dashboard enhancements mirroring Vault Dashboard capabilities (org activation, permission management, vault operations, usage reporting)
+notes: >-
+  The live release-notes page is the source of truth; only the most recent
+  dated entry was published on the harvested page at capture time.

@@ -1,0 +1,48 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.verygoodsecurity.com/enterprise-platform/developer-resources/webhook-notifications
+spec_type: Webhooks
+notes: >-
+  VGS documents a real webhook notification surface but publishes no AsyncAPI
+  document — captured here as a webhook catalog. Configured in the VGS Dashboard
+  (Administration > Organization Settings > Notifications).
+delivery:
+  mechanism: HTTPS webhook
+  signature_header: vgs-signature
+  signature_format: t=<timestamp>,v0=<sha256_hmac_of_raw_body>
+  verification: HMAC-SHA256 over the raw request body with a shared secret; timestamp checked within a ~60s delivery window
+  retries: 8 delivery attempts on non-200 responses, from immediate through ~10 hours, then cancelled
+events:
+- scope: VAULT
+  names:
+  - route.created
+  - route.updated
+  - route.delete
+  - proxy.upstream_error
+  - alias.reveal_failed
+- scope: ORGANIZATION
+  names:
+  - vault.created
+- scope: USER
+  names:
+  - user.permissions_updated
+  - user.permissions_deleted
+  - user.logged_in
+  - user.password_updated
+  - user.mfa_created
+  - user.mfa_deleted
+- scope: CMP
+  docs: https://docs.verygoodsecurity.com/cmp/developer-resources/notifications
+  names:
+  - cmp_au_card.updated
+  - cmp_au_card.expired
+  - cmp_au_card.closed
+  - cmp_au_card.non_participating
+  - cmp_au_card.contact_cardholder_advice
+  - cmp_au_card.unknown
+  - cmp_au_card.enrolled
+  - cmp_au_card.opt_out
+  - cmp_au_card.enrollment_failed
+  - cmp_network_token.updated
+  - cmp_threeds.device_fingerprint
+  - cmp_threeds.challenge_result

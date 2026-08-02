@@ -1,0 +1,109 @@
+generated: '2026-07-21'
+method: searched
+source: npm, PyPI, Maven Central, CocoaPods, github.com/verygoodsecurity
+packages:
+- language: javascript
+  registry: npm
+  name: "@vgs/collect-js"
+  url: https://www.npmjs.com/package/@vgs/collect-js
+  install: npm install @vgs/collect-js
+  official: true
+  notes: VGS Collect.js script loading module (secure field collection)
+- language: javascript
+  registry: npm
+  name: "@vgs/collect-js-react"
+  url: https://www.npmjs.com/package/@vgs/collect-js-react
+  install: npm install @vgs/collect-js-react
+  official: true
+  notes: React wrapper for VGS Collect.js
+- language: javascript
+  registry: npm
+  name: "@vgs/collect-react-native"
+  url: https://www.npmjs.com/package/@vgs/collect-react-native
+  install: npm install @vgs/collect-react-native
+  official: true
+  notes: VGS Collect React Native SDK
+- language: javascript
+  registry: npm
+  name: "@vgs/show-react-native"
+  url: https://www.npmjs.com/package/@vgs/show-react-native
+  install: npm install @vgs/show-react-native
+  official: true
+  notes: VGS Show React Native SDK (secure reveal)
+- language: typescript
+  registry: npm
+  name: "@vgs/api-client"
+  url: https://www.npmjs.com/package/@vgs/api-client
+  install: npm install @vgs/api-client
+  official: true
+  notes: Vault HTTP API client for TypeScript/JavaScript
+- language: python
+  registry: pypi
+  name: vgs-api-client
+  url: https://pypi.org/project/vgs-api-client/
+  install: pip install vgs-api-client
+  official: true
+  notes: Vault HTTP API client for Python
+- language: python
+  registry: pypi
+  name: vgs-cli
+  url: https://pypi.org/project/vgs-cli/
+  install: pip install vgs-cli
+  official: true
+  notes: first-party command line tool (see cli/very-good-security-cli.yml)
+- language: kotlin
+  registry: maven-central
+  name: com.verygoodsecurity:vgscollect
+  url: https://central.sonatype.com/artifact/com.verygoodsecurity/vgscollect
+  install: implementation 'com.verygoodsecurity:vgscollect'
+  official: true
+  notes: VGS Collect Android SDK
+- language: kotlin
+  registry: maven-central
+  name: com.verygoodsecurity:vgsshow
+  url: https://central.sonatype.com/artifact/com.verygoodsecurity/vgsshow
+  install: implementation 'com.verygoodsecurity:vgsshow'
+  official: true
+  notes: VGS Show Android SDK
+- language: kotlin
+  registry: maven-central
+  name: com.verygoodsecurity:vgscheckout
+  url: https://central.sonatype.com/artifact/com.verygoodsecurity/vgscheckout
+  install: implementation 'com.verygoodsecurity:vgscheckout'
+  official: true
+  notes: VGS Checkout Android SDK
+- language: java
+  registry: maven-central
+  name: com.verygoodsecurity:vgs-proxy-spring
+  url: https://central.sonatype.com/artifact/com.verygoodsecurity/vgs-proxy-spring
+  install: implementation 'com.verygoodsecurity:vgs-proxy-spring'
+  official: true
+  notes: VGS proxy integration for the Spring framework
+- language: swift
+  registry: cocoapods
+  name: VGSCollectSDK
+  url: https://cocoapods.org/pods/VGSCollectSDK
+  install: pod 'VGSCollectSDK'
+  official: true
+  notes: VGS Collect iOS SDK (also on SPM via github.com/verygoodsecurity/vgs-collect-ios)
+- language: swift
+  registry: cocoapods
+  name: VGSShowSDK
+  url: https://cocoapods.org/pods/VGSShowSDK
+  install: pod 'VGSShowSDK'
+  official: true
+  notes: VGS Show iOS SDK (also on SPM via github.com/verygoodsecurity/vgs-show-ios)
+- language: go
+  registry: github
+  name: verygoodsecurity/vgs-api-client-go
+  url: https://github.com/verygoodsecurity/vgs-api-client-go
+  install: go get github.com/verygoodsecurity/vgs-api-client-go
+  official: true
+  notes: Vault HTTP API client for Go
+- language: go
+  registry: github
+  name: verygoodsecurity/terraform-provider-vgs
+  url: https://github.com/verygoodsecurity/terraform-provider-vgs
+  install: terraform provider (build from source; not on registry.terraform.io)
+  official: true
+  notes: Terraform provider for provisioning VGS Proxy Routes

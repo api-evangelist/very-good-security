@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.verygoodsecurity.com/vault/developer-tools/vgs-collect
+families:
+- name: VGS Collect
+  description: >-
+    Secure field-collection components — hosted iframe inputs that capture card
+    numbers, bank accounts, and PII in the browser/app so raw values never touch
+    the customer's systems.
+  docs: https://docs.verygoodsecurity.com/vault/developer-tools/vgs-collect
+  loaders:
+  - platform: web
+    library: "@vgs/collect-js"
+    docs: https://docs.verygoodsecurity.com/vault/developer-tools/vgs-collect/js
+  - platform: react
+    library: "@vgs/collect-js-react"
+  - platform: react-native
+    library: "@vgs/collect-react-native"
+  - platform: ios
+    library: VGSCollectSDK (UIKit + SwiftUI components, card scanner, file uploader)
+    docs: https://docs.verygoodsecurity.com/vault/developer-tools/vgs-collect/ios-sdk
+  - platform: android
+    library: com.verygoodsecurity:vgscollect
+- name: VGS Show
+  description: >-
+    Secure reveal components — display vaulted values (full card number, CVV) to
+    end users without the data transiting the customer's servers.
+  loaders:
+  - platform: ios
+    library: VGSShowSDK
+  - platform: android
+    library: com.verygoodsecurity:vgsshow
+  - platform: react-native
+    library: "@vgs/show-react-native"
+- name: VGS Checkout
+  description: universal prebuilt checkout and card-on-file UX
+  loaders:
+  - platform: android
+    library: com.verygoodsecurity:vgscheckout
+  - platform: ios
+    library: VGSCheckout (github.com/verygoodsecurity/vgs-checkout-ios)
+- name: VGS Collect MCP UI
+  description: >-
+    Agentic-commerce UI component — lets AI agents render a secure VGS Collect
+    payment form inside a conversational prompt (MCP UI), keeping raw card data
+    out of the agent context.
+  docs: https://github.com/vgs-samples/vgs-agent-toolkit/tree/main/examples/mcp-ui-collect

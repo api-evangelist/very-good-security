@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.verygoodsecurity.com/vault/developer-tools/apis/vault-api + openapi/very-good-security-vault-openapi-original.yml
+authentication:
+  style: HTTP Basic (Vault HTTP API access credentials) or OAuth2 client_credentials (Vault API, service accounts)
+  artifact: authentication/very-good-security-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    no idempotency-key header or replay-safe retry contract is documented for the
+    Vault HTTP API; POST /aliases is not idempotent (re-sending stores values again
+    unless referencing an existing alias)
+pagination:
+  style: none
+  notes: >-
+    the Vault HTTP API exposes no paginated collection endpoints — reveal is by
+    explicit alias list (q= comma-separated) with a 20-value batch cap on create
+request_limits:
+  max_payload: 32MB stored data per request
+  batch_cap: 20 values per createAliases request
+rate_limits:
+  limit: 3,000 requests per minute per vault (regardless of credentials used)
+  signaling_header: x-ratelimit-remaining
+  on_exceed: HTTP 429 Too Many Requests
+versioning:
+  scheme: hostname + docs-track versioning; the legacy Vault API v1 is documented separately from the current Vault HTTP API
+  artifact: lifecycle/very-good-security-lifecycle.yml
+error_envelope:
+  shape: 'errors[]: {status, title, detail, href}'
+  artifact: errors/very-good-security-problem-types.yml
+environments:
+  sandbox: https://api.sandbox.verygoodvault.com (aliases prefixed tok_sandbox_)
+  live: https://api.live.verygoodvault.com (aliases prefixed tok_live_)
+  live_eu: https://api.live-eu-1.verygoodvault.com
+  artifact: sandbox/very-good-security-sandbox.yml
+data_semantics:
+  alias_formats: multiple format-preserving alias formats (e.g. UUID, RAW_UUID, format-preserving PAN aliases)
+  storage_classes: [PERSISTENT, VOLATILE]
+  classifiers: free-form labels (e.g. bank-account, credit-cards, PII) attachable to stored values
+webhooks:
+  artifact: asyncapi/very-good-security-webhooks.yml

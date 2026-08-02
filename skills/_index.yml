@@ -1,0 +1,11 @@
+generated: '2026-07-21'
+method: generated
+skills:
+- file: very-good-security-tokenize-data.md
+  name: Tokenize sensitive data in a VGS Vault
+  api: openapi/very-good-security-vault-openapi-original.yml
+  operations: [createAliases, revealAlias, revealMultipleAliases]
+- file: very-good-security-manage-aliases.md
+  name: Manage alias lifecycle in a VGS Vault
+  api: openapi/very-good-security-vault-openapi-original.yml
+  operations: [updateAlias, deleteAlias, createAliases]

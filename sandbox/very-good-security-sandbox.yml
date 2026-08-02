@@ -1,0 +1,60 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.verygoodsecurity.com/cmp/developer-resources/guides/testing/overview
+environments:
+- name: sandbox
+  base_url: https://api.sandbox.verygoodvault.com
+  notes: every VGS vault has a distinct sandbox environment; sandbox aliases carry the tok_sandbox_ prefix
+- name: live
+  base_url: https://api.live.verygoodvault.com
+  notes: production aliases carry the tok_live_ prefix
+- name: live-eu
+  base_url: https://api.live-eu-1.verygoodvault.com
+  notes: EU-resident production environment
+alias_prefixes:
+  sandbox: tok_sandbox_
+  live: tok_live_
+cmp_testing:
+  docs: https://docs.verygoodsecurity.com/cmp/developer-resources/guides/testing
+  notes: >-
+    The Card Management Platform ships mock implementations of the Create Card and
+    Get Card APIs; specific test PANs simulate fixed responses, and any PAN under
+    the supported test BINs exercises validation behavior.
+  test_bins:
+  - bin: '510026'
+    network: Mastercard
+  - bin: '400021'
+    network: Visa
+  - bin: '340000'
+    network: Amex
+  - bin: '659999'
+    network: Discover
+  test_cards:
+  - number: '5100260000019206'
+    simulates: 201 Created — card enrollment successful (on-create enrollment)
+  - number: '5100260000009207'
+    simulates: enrollment failure responses (on-create enrollment)
+  - number: '5100260000059210'
+    simulates: 401 Unauthorized
+  - number: '5100260000019214'
+    simulates: 500 Internal Server Error
+  - number: '6011000025883707'
+    simulates: successful Discover network token provisioning
+  - number: '6011005199449433'
+    simulates: Discover network token error codes (10001-10020)
+  - number: '340000104332183'
+    simulates: Amex network token lifecycle events (activated, suspended, deleted)
+  error_simulation:
+  - send malformed JSON to trigger 400 Bad Request
+  - omit required fields to trigger 422 Unprocessable Entity
+  scenario_guides:
+  - name: Account Updater webhooks
+    url: https://docs.verygoodsecurity.com/cmp/developer-resources/guides/testing/account-updater-webhooks
+  - name: Network Tokens webhooks
+    url: https://docs.verygoodsecurity.com/cmp/developer-resources/guides/testing/network-tokens-webhooks
+  - name: 3DS
+    url: https://docs.verygoodsecurity.com/cmp/developer-resources/guides/testing/3ds
+  - name: Account Validation
+    url: https://docs.verygoodsecurity.com/cmp/developer-resources/guides/testing/account-validation
+  - name: Wallet Decrypt
+    url: https://docs.verygoodsecurity.com/cmp/developer-resources/guides/testing/wallet-decrypt

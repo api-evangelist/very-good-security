@@ -1,0 +1,77 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.verygoodsecurity.com/vault/developer-tools/vgs-cli
+name: vgs-cli
+docs: https://docs.verygoodsecurity.com/vault/developer-tools/vgs-cli
+repository: https://github.com/verygoodsecurity/vgs-cli
+install:
+- method: pip
+  command: pip install vgs-cli
+  url: https://pypi.org/project/vgs-cli/
+- method: docker
+  command: docker run (see docs)
+  url: https://docs.verygoodsecurity.com/vault/developer-tools/vgs-cli/docker
+authentication:
+- mode: personal
+  command: vgs login
+  notes: browser-based login; sessions expire after 30 minutes of inactivity
+- mode: service-account
+  notes: non-interactive auth via a service_account.yaml credentials file (OAuth2 client credentials)
+  docs: https://docs.verygoodsecurity.com/vault/developer-tools/vgs-cli/service-account
+commands:
+- group: auth
+  commands:
+  - name: login
+    description: Log in with a personal VGS account
+  - name: logout
+    description: End the current session
+- group: generate
+  commands:
+  - name: generate service-account
+    description: Generate a service account
+  - name: generate access-credentials
+    description: Generate vault access credentials
+  - name: generate vault
+    description: Generate a vault template (vault.yaml)
+- group: apply
+  commands:
+  - name: apply service-account
+    description: Apply a service account definition
+  - name: apply access-credentials
+    description: Apply access credentials
+  - name: apply routes
+    description: Apply proxy route configuration from routes.yaml
+  - name: apply vault
+    description: Create/update a vault from vault.yaml
+- group: delete
+  commands:
+  - name: delete service-account
+    description: Delete a service account
+- group: get
+  commands:
+  - name: get access-credentials
+    description: Retrieve vault access credentials
+  - name: get routes
+    description: Retrieve proxy route configuration
+  - name: get vaults
+    description: List vaults
+  - name: get organizations
+    description: List organizations
+- group: certificate
+  commands:
+  - name: certificate list
+    description: List certificates
+  - name: certificate generate-csr
+    description: Generate a certificate signing request
+  - name: certificate upload
+    description: Upload a certificate
+- group: logs
+  commands:
+  - name: logs access
+    description: Stream/inspect proxy access logs
+  - name: logs operations
+    description: Stream/inspect operations logs
+config_files:
+- service_account.yaml
+- routes.yaml
+- vault.yaml
