@@ -2,15 +2,11 @@ generated: '2026-07-21'
 method: searched
 source: https://github.com/vgs-samples/vgs-agent-toolkit
 status: published
-notes: >-
-  VGS publishes a first-party Agent Toolkit with two self-hosted FastMCP (Python)
-  MCP servers plus MCP UI examples — including a Collect-based MCP UI component
-  that lets agents trigger secure payment-data collection inside a conversation
-  without raw card data touching the agent. These are run-locally (stdio) servers,
-  not a hosted remote endpoint. See also the Agentic Commerce Guide at
-  https://docs.verygoodsecurity.com/agentic-commerce/agentic-commerce-overview
-  and the launch post
-  https://www.verygoodsecurity.com/blog/posts/agentic-commerce-ai-powered-shopping-with-vgs-collect-mcp-ui
+notes: VGS publishes a first-party Agent Toolkit with two self-hosted FastMCP (Python) MCP servers plus
+  MCP UI examples — including a Collect-based MCP UI component that lets agents trigger secure payment-data
+  collection inside a conversation without raw card data touching the agent. These are run-locally (stdio)
+  servers, not a hosted remote endpoint. See also the Agentic Commerce Guide at https://docs.verygoodsecurity.com/agentic-commerce/agentic-commerce-overview
+  and the launch post https://www.verygoodsecurity.com/blog/posts/agentic-commerce-ai-powered-shopping-with-vgs-collect-mcp-ui
 servers:
 - name: vaultmcp
   description: VGS Secure Data Platform (Vault + Proxy) MCP Server — manage vault routes and access logs
@@ -62,3 +58,8 @@ examples:
 - name: agentic-commerce-tutorial
   description: End-to-end agentic commerce tutorial
   url: https://github.com/vgs-samples/vgs-agent-toolkit/tree/main/examples/agentic-commerce-tutorial
+deployment:
+  mode: unclear
+  verified: searched
+  checked: '2026-08-12'
+  source: catalog MCP census

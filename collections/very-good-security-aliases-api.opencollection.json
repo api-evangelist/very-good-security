@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Vault HTTP aliases API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "aliases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Reveal multiple aliases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.verygoodvault.com/aliases",
+            "params": [
+              {
+                "name": "q",
+                "value": "tok_sandbox_5UpnbMvaihRuRwz5QXwBFw,tok_sandbox_9ToiJHedw1nE1Jfx1qYYgz",
+                "type": "query",
+                "description": "Comma-separated list of aliases to reveal."
+              }
+            ]
+          },
+          "docs": "Given a list of aliases, retrieves all associated values stored in the\nvault.\n\n**NOTE:** This endpoint may expose sensitive data. Therefore, it is\ndisabled by default. To enable it, please contact your VGS account\nmanager or drop us a line at\n[support@verygoodsecurity.com](mailto:support@verygoodsecurity.com).\n"
+        },
+        {
+          "info": {
+            "name": "Create aliases",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.verygoodvault.com/aliases",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stores multiple values at once & returns their aliases.\n\nAlternatively, this endpoint may be used to associate additional (i.e.\nsecondary) aliases with the same underlying data as the reference\nalias specified in the request body.\n\n**NOTE:** You cannot reference the same alias more than once in a\nsingle request.\n"
+        },
+        {
+          "info": {
+            "name": "Reveal single alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.verygoodvault.com/aliases/:alias",
+            "params": [
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path",
+                "description": "Alias to operate on."
+              }
+            ]
+          },
+          "docs": "Retrieves a stored value along with its aliases.\n\n**NOTE:** This endpoint may expose sensitive data. Therefore, it is\ndisabled by default. To enable it, please contact your VGS account\nmanager or drop us a line at\n[support@verygoodsecurity.com](mailto:support@verygoodsecurity.com).\n"
+        },
+        {
+          "info": {
+            "name": "Update data classifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.verygoodvault.com/aliases/:alias",
+            "params": [
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path",
+                "description": "Alias to operate on."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Apply new classifiers to the value that the specified alias is\nassociated with.\n"
+        },
+        {
+          "info": {
+            "name": "Delete alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.sandbox.verygoodvault.com/aliases/:alias",
+            "params": [
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path",
+                "description": "Alias to operate on."
+              }
+            ]
+          },
+          "docs": "Removes a single alias.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
