@@ -67,6 +67,8 @@ apis:
   humanURL: https://www.verygoodsecurity.com/docs/vault/api/
   baseURL: https://api.live.verygoodvault.com
   tags:
+  - Aliases
+  tags_raw:
   - aliases
   properties:
   - type: OpenAPI
