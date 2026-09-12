@@ -90,6 +90,8 @@ apis:
   - type: Documentation
     url: https://docs.verygoodsecurity.com/vault/developer-tools/apis/vault-api
 common:
+- type: Website
+  url: https://www.verygoodsecurity.com/
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/very-good-security/overview
 - type: Packages
